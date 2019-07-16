@@ -2,6 +2,7 @@ library(tidyverse)
 library(shiny)
 library(shinydashboard)
 library(shinyWidgets)
+library(plotly)
 
 dashboardPage(
     dashboardHeader(title = "olx Used Car Price Estimator"),
@@ -49,6 +50,18 @@ dashboardPage(
             valueBoxOutput(outputId = 'meanSelected', width = 3),
             valueBoxOutput(outputId = 'medianAll', width = 3),
             valueBoxOutput(outputId = 'meanAll', width = 3)
+        ),
+        
+        fluidRow(
+            tabBox(
+                title = NULL,
+                width = 12,
+                id = 'tabset1',
+                tabPanel('Price Distribution',
+                         plotlyOutput('priceDist')),
+                tabPanel('Year Wise Trend',
+                         plotlyOutput('boxPlot'))
+            )
         )
     )
 )
