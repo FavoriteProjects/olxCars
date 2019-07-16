@@ -24,8 +24,8 @@ server <- function(input, output, session){
     })
     
     output$medianSelected <- renderValueBox({
-        valueBox(value = median_prc_yr_fltrd(), 
-                 subtitle = paste0(input$year, ' Median Price'), 
+        valueBox(value = round(median_prc_yr_fltrd()/100000, 2), 
+                 subtitle = paste0(input$year, ' Median Price(lacs)'), 
                  icon = icon('rupee-sign'), 
                  color = 'purple', 
                  width = 3
@@ -33,8 +33,8 @@ server <- function(input, output, session){
     })
     
     output$meanSelected <- renderValueBox({
-        valueBox(value = mean_prc_yr_fltrd(), 
-                 subtitle = paste0(input$year, ' Mean Price'), 
+        valueBox(value = round(mean_prc_yr_fltrd()/100000, 2), 
+                 subtitle = paste0(input$year, ' Mean Price(lacs)'), 
                  icon = icon('rupee-sign'), 
                  color = 'purple', 
                  width = 3
@@ -42,8 +42,8 @@ server <- function(input, output, session){
     })
     
     output$medianAll <- renderValueBox({
-        valueBox(value = median_prc_yr_all(), 
-                 subtitle = 'Overall Median Price', 
+        valueBox(value = round(median_prc_yr_all()/100000, 2), 
+                 subtitle = 'Overall Median Price(lacs)', 
                  icon = icon('rupee-sign'), 
                  color = 'purple', 
                  width = 3
@@ -51,8 +51,8 @@ server <- function(input, output, session){
     })
     
     output$meanAll <- renderValueBox({
-        valueBox(value = mean_prc_yr_all(), 
-                 subtitle = 'Overall Mean Price', 
+        valueBox(value = round(mean_prc_yr_all()/100000, 2), 
+                 subtitle = 'Overall Mean Price in lacs', 
                  icon = icon('rupee-sign'), 
                  color = 'purple', 
                  width = 3
